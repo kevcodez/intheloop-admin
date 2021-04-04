@@ -1,0 +1,30 @@
+{
+  "name": "intheloop",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^1.7.7",
+    "core-js": "^3.9.1",
+    "nuxt": "^2.15.3",
+    "nuxt-supabase": "^1.0.6"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.3",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/composition-api": "^0.22.4",
+    "@nuxtjs/tailwindcss": "^4.0.1",
+    "@tailwindcss/jit": "^0.1.18",
+    "@vue/composition-api": "^1.0.0-rc.6",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "nuxt-vite": "^0.0.36",
+    "postcss": "^8.2.8",
+    "prettier": "^2.2.1"
+  }
+}
