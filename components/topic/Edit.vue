@@ -187,7 +187,7 @@
 
             <div>
                 <span class="block">Courses</span>
-                <topic-select-courses v-model="topic.courses" />
+                <course-select-multiple v-model="topic.courses" />
             </div>
 
             <div>
