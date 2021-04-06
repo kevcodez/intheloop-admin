@@ -197,12 +197,12 @@
 
             <div>
                 <span class="block">Developers</span>
-                <developers-select-multiple v-model="topic.developers" />
+                <developer-select-multiple v-model="topic.developers" />
             </div>
 
             <div>
                 <span class="block">Podcasts</span>
-                <topic-select-podcasts v-model="topic.podcasts" />
+                <podcast-select-multiple v-model="topic.podcasts" />
             </div>
         </div>
     </div>
