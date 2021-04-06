@@ -217,21 +217,20 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
-      topic: null,
+      topic: null as any,
     }
   },
   async fetch() {
     // @ts-ignore
     const { body: topics } = await this.$supabase
-      .from('topic')
+      .from<any>('topic')
       .select('*')
       .eq('id', this.$route.params.id)
 
-    this.topic = topics[0]
+    this.topic = topics!![0]
   },
   methods: {
     async save() {
-      // @ts-ignore
       const { error } = await this.$supabase
         .from('topic')
         .update(this.topic)

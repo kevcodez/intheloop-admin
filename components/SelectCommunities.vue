@@ -1,19 +1,10 @@
 <template>
-    <div>
-        <multiselect
-            class="w-full"
-            v-model="selectedValues"
-            :options="options"
-            :internal-search="false"
-            :multiple="true"
-            :searchable="true"
-            open-direction="bottom"
-            :loading="isLoading"
-            @search-change="search"
-            track-by="id"
-            :custom-label="optionLabel"
-        />
-    </div>
+    <select-topic-entities
+        v-model="internal"
+        :optionLabel="optionLabel"
+        table="community"
+        :searchFields="['url', 'name']"
+    />
 </template>
 
 <script lang="ts">
@@ -22,60 +13,24 @@ import Vue, { PropType } from 'vue'
 export default Vue.extend({
     props: {
         value: {
-            required: false,
-            type: Object as PropType<any[]>
-        }
-    },
-    data() {
-        return {
-            options: [] as any[],
-            selectedValues: [],
-            isLoading: false
+            required: true,
+            type: Array as PropType<any[]>
         }
     },
     methods: {
-        async search(query: string) {
-            if (query.length < 3) return
-
-            this.isLoading = true
-
-            const { data, error } = await this.$supabase
-                .from<any>('community')
-                .select('*')
-                .or(`info->>url.ilike.*${query}*,info->>name.ilike.*${query}*`)
-
-            this.isLoading = false
-            if (data) {
-                this.options = data
-            }
-        },
-        async loadFromValues() {
-            if (!this.value) {
-                this.selectedValues = []
-            } else {
-                const { data, error } = await this.$supabase
-                    .from<any>('community')
-                    .select('*')
-                    .in("id", this.value)
-
-                this.selectedValues = data
-            }
-
-        },
         optionLabel(option: any) {
             return `${option.info.name} (${option.info.url})`
         }
     },
-    mounted() {
-        this.loadFromValues()
+    data() {
+        return {
+            internal: this.value
+        }
     },
     watch: {
-        selectedValues: function(selected: any[]) {
-            const idsSelected = selected.map(it => it.id)
-
-            this.$emit('input', idsSelected)
+        internal: function(selected: any[]) {
+            this.$emit('input', selected)
         }
     }
 })
-
 </script>
