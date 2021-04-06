@@ -182,7 +182,7 @@
 
             <div>
                 <span class="block">Communities</span>
-                <topic-select-communities v-model="topic.communities" />
+                <community-select-multiple v-model="topic.communities" />
             </div>
 
             <div>
