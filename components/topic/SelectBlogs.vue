@@ -1,8 +1,8 @@
 <template>
-    <select-topic-entities
+    <select-entities
         v-model="internal"
         :optionLabel="optionLabel"
-        table="community"
+        table="blog"
         :searchFields="['url', 'name']"
     />
 </template>

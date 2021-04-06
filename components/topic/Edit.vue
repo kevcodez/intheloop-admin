@@ -190,37 +190,37 @@
         <div class="grid grid-cols-4 gap-6 mt-4">
             <div>
                 <span class="block">Blogs</span>
-                <select-blogs v-model="topic.blogs" />
+                <topic-select-blogs v-model="topic.blogs" />
             </div>
 
             <div>
                 <span class="block">Books</span>
-                <select-books v-model="topic.books" />
+                <topic-select-books v-model="topic.books" />
             </div>
 
             <div>
                 <span class="block">Communities</span>
-                <select-communities v-model="topic.communities" />
+                <topic-select-communities v-model="topic.communities" />
             </div>
 
             <div>
                 <span class="block">Courses</span>
-                <select-courses v-model="topic.courses" />
+                <topic-select-courses v-model="topic.courses" />
             </div>
 
             <div>
                 <span class="block">Newsletters</span>
-                <select-newsletters v-model="topic.newsletters" />
+                <topic-select-newsletters v-model="topic.newsletters" />
             </div>
 
             <div>
                 <span class="block">Developers</span>
-                <select-developers v-model="topic.developers" />
+                <topic-select-developers v-model="topic.developers" />
             </div>
 
             <div>
                 <span class="block">Podcasts</span>
-                <select-podcasts v-model="topic.podcasts" />
+                <topic-select-podcasts v-model="topic.podcasts" />
             </div>
         </div>
     </div>

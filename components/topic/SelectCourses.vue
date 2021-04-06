@@ -1,8 +1,8 @@
 <template>
-    <select-topic-entities
+    <select-entities
         v-model="internal"
         :optionLabel="optionLabel"
-        table="podcast"
+        table="course"
         :searchFields="['url', 'name']"
     />
 </template>
@@ -19,7 +19,7 @@ export default Vue.extend({
     },
     methods: {
         optionLabel(option: any) {
-            return `${option.info.name} (${option.info.url})`
+            return option.info.name
         }
     },
     data() {

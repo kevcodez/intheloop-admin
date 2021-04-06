@@ -1,5 +1,5 @@
 <template>
-    <select-topic-entities
+    <select-entities
         v-model="internal"
         :optionLabel="optionLabel"
         table="developer"

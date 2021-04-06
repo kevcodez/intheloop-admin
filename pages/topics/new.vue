@@ -1,6 +1,6 @@
 <template>
     <div v-if="topic" class="p-8">
-      <edit-topic v-model="topic" />
+      <topic-edit v-model="topic" />
   
       <div class="mt-5">
         <el-button type="primary" @click="save">Save</el-button>
