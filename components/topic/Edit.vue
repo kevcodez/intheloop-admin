@@ -197,7 +197,7 @@
 
             <div>
                 <span class="block">Developers</span>
-                <topic-select-developers v-model="topic.developers" />
+                <developers-select-multiple v-model="topic.developers" />
             </div>
 
             <div>
