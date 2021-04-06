@@ -1395,10 +1395,20 @@
     query-string "^6.12.1"
     websocket "^1.0.31"
 
-"@supabase/supabase-js@^1.4.2", "@supabase/supabase-js@^1.7.7":
+"@supabase/supabase-js@^1.4.2":
   version "1.7.7"
   resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.7.7.tgz#f4c7be3df531ac20c5b13224e4bd4de5d3bf578b"
   integrity sha512-zbBU/a1hu9rXmm764z29GP3NLxccZrKd64TFkp3K6xkxKgxSs/y4kgfOdVD4+a0xmeE6jBgB/q+4G9PR8GQOPA==
+  dependencies:
+    "@supabase/gotrue-js" "^1.12.2"
+    "@supabase/postgrest-js" "^0.28.0"
+    "@supabase/realtime-js" "^1.0.6"
+    cross-fetch "^3.1.0"
+
+"@supabase/supabase-js@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.8.0.tgz#d2540a5490d51f91c24b55436147a871c95bdc5a"
+  integrity sha512-6wA63aaOVy4Bbv8uZ2Eu55JBZ2Q1ghA88QznlLAtsBgx8TJMID3chmwimFvu3QSzvfuQsKqM9LYz7c3/+MBBEg==
   dependencies:
     "@supabase/gotrue-js" "^1.12.2"
     "@supabase/postgrest-js" "^0.28.0"

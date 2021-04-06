@@ -9,7 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^1.7.7",
+    "@supabase/supabase-js": "^1.8.0",
     "core-js": "^3.9.1",
     "element-ui": "^2.15.1",
     "nuxt": "^2.15.3",

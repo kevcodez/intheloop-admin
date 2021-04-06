@@ -146,7 +146,6 @@
     </div>
 
     <div class="mt-6">
-      <div class="grid grid-cols-2 gap-6">
         <div>
           <span class="block">Via</span>
           <el-select class="w-full" v-model="topic.info.fetchReleases.via">
@@ -168,35 +167,41 @@
           <el-input v-model="topic.info.fetchReleases.meta.package" />
         </div>
       </div>
-    </div>
 
-    <div class="grid grid-cols-4">
+    <div class="grid grid-cols-4 gap-6 mt-4">
       <div>
         <span class="block">Blogs</span>
+        <select-blogs v-model="topic.blogs"  />
       </div>
 
       <div>
         <span class="block">Books</span>
+        <select-books v-model="topic.books"  />
       </div>
 
       <div>
         <span class="block">Communities</span>
+        <select-communities v-model="topic.communities"  />
       </div>
 
       <div>
         <span class="block">Courses</span>
+        <select-courses v-model="topic.courses"  />
       </div>
 
       <div>
         <span class="block">Newsletters</span>
+        <select-newsletters v-model="topic.newsletters"  />
       </div>
 
       <div>
         <span class="block">Developers</span>
+        <select-developers v-model="topic.developers"  />
       </div>
 
       <div>
         <span class="block">Podcasts</span>
+        <select-podcasts v-model="topic.podcasts"  />
       </div>
     </div>
 
