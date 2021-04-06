@@ -192,7 +192,7 @@
 
             <div>
                 <span class="block">Newsletters</span>
-                <topic-select-newsletters v-model="topic.newsletters" />
+                <newsletter-select-multiple v-model="topic.newsletters" />
             </div>
 
             <div>

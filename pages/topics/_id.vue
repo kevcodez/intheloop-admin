@@ -18,7 +18,6 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    // @ts-ignore
     const { body: topics } = await this.$supabase
       .from<any>('topic')
       .select('*')

@@ -1,6 +1,6 @@
 <template>
-  <div v-if="community" class="p-8">
-    <community-edit v-model="community" />
+  <div v-if="newsletter" class="p-8">
+    <newsletter-edit v-model="newsletter" />
 
     <div class="mt-5">
       <el-button type="primary" @click="save">Save</el-button>
@@ -14,22 +14,22 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
-      community: null as any,
+      newsletter: null as any,
     }
   },
   async fetch() {
-    const { body: communities } = await this.$supabase
-      .from<any>('community')
+    const { body: newsletters } = await this.$supabase
+      .from<any>('newsletter')
       .select('*')
       .eq('id', this.$route.params.id)
 
-    this.community = communities!![0]
+    this.newsletter = newsletters!![0]
   },
   methods: {
     async save() {
       const { error } = await this.$supabase
-        .from('community')
-        .update(this.community)
+        .from('newsletter')
+        .update(this.newsletter)
         .eq('id', this.$route.params.id)
 
       console.log(error)
