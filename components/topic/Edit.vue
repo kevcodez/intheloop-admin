@@ -190,7 +190,7 @@
         <div class="grid grid-cols-4 gap-6 mt-4">
             <div>
                 <span class="block">Blogs</span>
-                <topic-select-blogs v-model="topic.blogs" />
+                <blog-select-multiple v-model="topic.blogs" />
             </div>
 
             <div>

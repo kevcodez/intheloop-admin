@@ -1,5 +1,5 @@
 <template>
-    <div v-if="topic" class="p-8">
+    <div class="p-8">
       <topic-edit v-model="topic" />
   
       <div class="mt-5">
