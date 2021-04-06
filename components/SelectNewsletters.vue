@@ -13,7 +13,7 @@ import Vue, { PropType } from 'vue'
 export default Vue.extend({
     props: {
         value: {
-            required: true,
+            required: false,
             type: Array as PropType<any[]>
         }
     },
