@@ -39,24 +39,7 @@
         </div>
 
         <div class="mt-4">
-            <el-tag
-                v-for="tag in topic.info.tags"
-                :key="tag"
-                closable
-                :type="tag"
-                @close="handleClose(tag)"
-            >{{ tag }}</el-tag>
-
-            <el-input
-                class="input-new-tag"
-                v-if="inputVisible"
-                v-model="inputValue"
-                ref="saveTagInput"
-                size="mini"
-                @keyup.enter.native="handleInputConfirm"
-                @blur="handleInputConfirm"
-            ></el-input>
-            <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
+            <tag-list v-model="topic.info.tags" />
         </div>
 
         <div class="mt-4 grid grid-cols-4 gap-6">
@@ -139,7 +122,6 @@
                     <span>Badge URL</span>
                     <el-input v-model="badge.url" />
                 </div>
-
             </div>
 
             <div class="space-y-2 shadow p-4" v-for="social in topic.info.social" :key="social.url">
@@ -195,7 +177,7 @@
 
             <div>
                 <span class="block">Books</span>
-                <topic-select-books v-model="topic.books" />
+                <book-select-multiple v-model="topic.books" />
             </div>
 
             <div>
@@ -239,8 +221,6 @@ export default Vue.extend({
     data() {
         return {
             topic: this.value,
-            inputVisible: false,
-            inputValue: ''
         }
     },
     watch: {
@@ -249,28 +229,6 @@ export default Vue.extend({
         }
     },
     methods: {
-        handleClose(tag: string) {
-            this.topic.info.tags.splice(this.topic.info.tags.indexOf(tag), 1);
-        },
-
-        showInput() {
-            this.inputVisible = true;
-            // @ts-ignore
-            this.$nextTick((_) => {
-                // @ts-ignore
-                this.$refs.saveTagInput.$refs.input.focus();
-            });
-        },
-
-        handleInputConfirm() {
-            let inputValue = this.inputValue;
-            if (inputValue) {
-                this.topic.info.tags.push(inputValue);
-            }
-            this.inputVisible = false;
-            this.inputValue = '';
-        },
-
         addBadge() {
             this.topic.info.badges.push({ type: '', url: '' })
         },
@@ -294,21 +252,5 @@ export default Vue.extend({
 <style lang="scss">
 textarea {
     @apply h-28;
-}
-
-.el-tag + .el-tag {
-    margin-left: 10px;
-}
-.button-new-tag {
-    margin-left: 10px;
-    height: 32px;
-    line-height: 30px;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-.input-new-tag {
-    width: 90px;
-    margin-left: 10px;
-    vertical-align: bottom;
 }
 </style>
