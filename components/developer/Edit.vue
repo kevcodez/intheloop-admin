@@ -17,7 +17,7 @@
 
     <div>
       <span>Logo</span>
-      <el-input v-model="developer.info.logoUrl" />
+      <edit-image v-model="developer.info.logoUrl" />
     </div>
   </div>
 </template>

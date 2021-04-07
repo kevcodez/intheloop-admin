@@ -23,7 +23,7 @@
 
       <div>
         <span>Image</span>
-        <el-input v-model="course.info.image" />
+        <edit-image v-model="course.info.image" />
       </div>
 
       <div>

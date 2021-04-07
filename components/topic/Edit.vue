@@ -17,7 +17,7 @@
 
             <div>
                 <span>Logo</span>
-                <el-input v-model="topic.info.logo" />
+                <edit-image v-model="topic.info.logo" />
             </div>
 
             <div>

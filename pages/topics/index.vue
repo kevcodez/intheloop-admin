@@ -1,11 +1,7 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">intheloop</h1>
-
-      <div v-for="topic in topics" :key="topic.id">
-        <nuxt-link :to="`/topics/${topic.id}`">{{ topic.id }}</nuxt-link>
-      </div>
+    <div v-for="topic in topics" :key="topic.id">
+      <nuxt-link :to="`/topics/${topic.id}`">{{ topic.id }}</nuxt-link>
     </div>
   </div>
 </template>
