@@ -21,7 +21,7 @@ export default Vue.extend({
     const { body: topics } = await this.$supabase
       .from<any>('topic')
       .select('*')
-      .eq('id', this.$route.params.id)
+      .eq('id', this.$route.params.topicId)
 
     this.topic = topics!![0]
   },
@@ -30,7 +30,7 @@ export default Vue.extend({
       const { error } = await this.$supabase
         .from('topic')
         .update(this.topic)
-        .eq('id', this.$route.params.id)
+        .eq('id', this.$route.params.topicId)
 
       console.log(error)
     },
