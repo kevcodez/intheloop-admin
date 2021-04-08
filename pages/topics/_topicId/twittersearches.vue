@@ -41,7 +41,17 @@ export default Vue.extend({
   name: 'TopicTwitterSearches',
   data() {
     return {
-      search: null as any,
+      search: {
+        id: undefined,
+        topic: this.$route.params.topicId,
+        info: {
+          popular: {
+            minLikes: 30,
+            minReplies: 30,
+          },
+          searches: [{ query: '' }],
+        },
+      } as any,
     }
   },
   async fetch() {
@@ -50,14 +60,17 @@ export default Vue.extend({
       .select('*')
       .eq('topic', this.$route.params.topicId)
 
-    this.search = searches!![0]
+      console.log(searches)
+
+    if (searches && searches.length) {
+      this.search = searches[0]
+    }
   },
   methods: {
     async save() {
       const { error } = await this.$supabase
         .from('twitter_search')
-        .update(this.search)
-        .eq('id', this.search.id)
+        .upsert(this.search)
     },
     addSearch() {
       this.search.info.searches.push({ query: '' })

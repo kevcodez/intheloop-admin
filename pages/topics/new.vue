@@ -41,7 +41,12 @@
                 description:'',
                 shortDescription: '',
                 fetchReleases: {
-                    via: ''
+                    via: '',
+                    meta: {
+                      repo: '',
+                      owner: '',
+                      package: ''
+                    }
                 }
             },
             developers: [],
