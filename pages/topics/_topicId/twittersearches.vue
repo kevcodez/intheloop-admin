@@ -12,19 +12,30 @@
       </div>
     </div>
 
+    <a class="mt-4" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query" target="_blank"
+      >Twitter Query Docs</a
+    >
+
     <div class="mt-4">
       <el-button @click="addSearch">Add Search</el-button>
     </div>
 
     <div class="mt-4 grid grid-cols-4 gap-6">
-      <div v-for="s in search.info.searches" :key="s.query">
+      <div v-for="(query, i) in search.info.searches" :key="i">
         <span
           >Query
-          <a class="float-right cursor-pointer" @click="removeSearch(s)"
-            >X</a
-          ></span
-        >
-        <el-input v-model="s.query" />
+          <div class="float-right">
+            <a class="cursor-pointer mr-2" @click="searchTweets(query)">Test</a>
+            <a class="cursor-pointer" @click="removeSearch(query)">X</a>
+          </div>
+        </span>
+        <el-input v-model="query.query" />
+      </div>
+    </div>
+
+    <div class="mt-5 grid grid-cols-4 gap-4" v-if="searchResults">
+      <div v-for="tweet in searchResults.tweets" :key="tweet.id">
+        {{ tweet.text }}
       </div>
     </div>
 
@@ -36,6 +47,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TwitterSearch, TwitterSearchQuery } from '~/lib/twitterSearches/TwitterSearch'
 
 export default Vue.extend({
   name: 'TopicTwitterSearches',
@@ -51,16 +63,15 @@ export default Vue.extend({
           },
           searches: [{ query: '' }],
         },
-      } as any,
+      } as TwitterSearch,
+      searchResults: null as any,
     }
   },
   async fetch() {
     const { body: searches } = await this.$supabase
-      .from<any>('twitter_search')
+      .from<TwitterSearch>('twitter_search')
       .select('*')
       .eq('topic', this.$route.params.topicId)
-
-      console.log(searches)
 
     if (searches && searches.length) {
       this.search = searches[0]
@@ -68,15 +79,21 @@ export default Vue.extend({
   },
   methods: {
     async save() {
-      const { error } = await this.$supabase
-        .from('twitter_search')
-        .upsert(this.search)
+      const { error } = await this.$supabase.from('twitter_search').upsert(this.search)
+    },
+    async searchTweets(search: TwitterSearchQuery) {
+      try {
+        this.searchResults = await this.$http.$post('https://europe-west1-intheloop-dev.cloudfunctions.net/retrieveTweetsBySearch', search)
+      } catch (err) {
+        const errorText = await err.response.text()
+        console.error(errorText)
+      }
     },
     addSearch() {
       this.search.info.searches.push({ query: '' })
     },
-    removeSearch(s: any) {
-      this.search.info.searches.splice(this.search.info.searches.indexOf(s), 1)
+    removeSearch(query: any) {
+      this.search.info.searches.splice(this.search.info.searches.indexOf(query), 1)
     },
   },
 })

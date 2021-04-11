@@ -2,6 +2,10 @@
   <div v-if="topic" class="p-8">
     <topic-edit v-model="topic" />
 
+    <nuxt-link :to="`/topics/${topic.id}/twittersearches`"
+      >Twitter Searches</nuxt-link
+    >
+
     <div class="mt-5">
       <el-button type="primary" @click="save">Save</el-button>
     </div>

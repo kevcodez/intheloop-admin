@@ -1379,6 +1379,13 @@
   dependencies:
     cross-fetch "^3.0.6"
 
+"@supabase/gotrue-js@^1.12.4":
+  version "1.12.6"
+  resolved "https://registry.yarnpkg.com/@supabase/gotrue-js/-/gotrue-js-1.12.6.tgz#8b31a4ebbb7f644c93f2064c5f9218bcef72b299"
+  integrity sha512-g/JsDpLj9LZZAgLjL5aQEmK2r/VQIL5M0xdqTBhtkXTWvPXMtdvIBJQkJf5WbUVE7FWHwxF0q/r7JCNR54XMnw==
+  dependencies:
+    cross-fetch "^3.0.6"
+
 "@supabase/postgrest-js@^0.28.0":
   version "0.28.0"
   resolved "https://registry.yarnpkg.com/@supabase/postgrest-js/-/postgrest-js-0.28.0.tgz#6e383b451057bef4e1caf6fc75c88a935ca5524a"
@@ -1405,12 +1412,12 @@
     "@supabase/realtime-js" "^1.0.6"
     cross-fetch "^3.1.0"
 
-"@supabase/supabase-js@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.8.0.tgz#d2540a5490d51f91c24b55436147a871c95bdc5a"
-  integrity sha512-6wA63aaOVy4Bbv8uZ2Eu55JBZ2Q1ghA88QznlLAtsBgx8TJMID3chmwimFvu3QSzvfuQsKqM9LYz7c3/+MBBEg==
+"@supabase/supabase-js@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.9.0.tgz#b437cc84af51331dfdd40aaf317940c93db8872a"
+  integrity sha512-nztZ/ElBxJclFgRyrQotiVtJMJd+WTIYuhg1vb5q1/83mwsAh3VUXGStheTqrEtV7mVYm3fO6rQ3qRLwK8XeEQ==
   dependencies:
-    "@supabase/gotrue-js" "^1.12.2"
+    "@supabase/gotrue-js" "^1.12.4"
     "@supabase/postgrest-js" "^0.28.0"
     "@supabase/realtime-js" "^1.0.6"
     cross-fetch "^3.1.0"
@@ -3562,10 +3569,10 @@ core-js@^2.4.0, core-js@^2.6.5:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
-core-js@^3.9.1:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.10.0.tgz#9a020547c8b6879f929306949e31496bbe2ae9b3"
-  integrity sha512-MQx/7TLgmmDVamSyfE+O+5BHvG1aUGj/gHhLn1wVtm2B5u1eVIPvh7vkfjwWKNCjrTJB8+He99IntSQ1qP+vYQ==
+core-js@^3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.10.1.tgz#e683963978b6806dcc6c0a4a8bd4ab0bdaf3f21a"
+  integrity sha512-pwCxEXnj27XG47mu7SXAwhLP3L5CrlvCB91ANUkIz40P27kUcvNfSdvyZJ9CLHiVoKSp+TTChMQMSKQEH/IQxA==
 
 core-util-is@~1.0.0:
   version "1.0.2"

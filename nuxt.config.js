@@ -1,6 +1,6 @@
 export default {
   ssr: false,
-  
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'intheloop',
@@ -16,7 +16,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [ '~/assets/scss/main.scss'],
+  css: ['~/assets/scss/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~/plugins/supabase', '~/plugins/element-ui', '~/plugins/vue-multiselect'],
@@ -24,13 +24,9 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  buildModules: [
-    '@nuxt/typescript-build',
-    '@nuxtjs/tailwindcss',
-  ],
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss'],
 
-  modules: [
-  ],
+  modules: ['@nuxt/http'],
 
   build: {},
 
@@ -39,6 +35,6 @@ export default {
   },
 
   env: {
-    supabaseKey: process.env.INTHELOOP_SUPABASE_KEY
-  }
+    supabaseKey: process.env.INTHELOOP_SUPABASE_KEY,
+  },
 }
