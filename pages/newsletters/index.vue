@@ -1,9 +1,10 @@
 <template>
-  <div class="container">
-    <div>
-      <div v-for="newsletter in newsletters" :key="newsletter.id">
-        <nuxt-link :to="`/newsletters/${newsletter.id}`">{{ newsletter.id }}</nuxt-link>
-      </div>
+  <div>
+    <div class="mb-5">
+      <nuxt-link class="el-button" to="/newsletters/new">New</nuxt-link>
+    </div>
+    <div v-for="newsletter in newsletters" :key="newsletter.id">
+      <nuxt-link :to="`/newsletters/${newsletter.id}`">{{ newsletter.id }}</nuxt-link>
     </div>
   </div>
 </template>

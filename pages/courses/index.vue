@@ -1,9 +1,10 @@
 <template>
-  <div class="container">
-    <div>
-      <div v-for="course in courses" :key="course.id">
-        <nuxt-link :to="`/courses/${course.id}`">{{ course.id }}</nuxt-link>
-      </div>
+  <div>
+    <div class="mb-5">
+      <nuxt-link class="el-button" to="/courses/new">New</nuxt-link>
+    </div>
+    <div v-for="course in courses" :key="course.id">
+      <nuxt-link :to="`/courses/${course.id}`">{{ course.id }}</nuxt-link>
     </div>
   </div>
 </template>

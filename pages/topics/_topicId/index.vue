@@ -2,9 +2,9 @@
   <div v-if="topic" class="p-8">
     <topic-edit v-model="topic" />
 
-    <nuxt-link :to="`/topics/${topic.id}/twittersearches`"
-      >Twitter Searches</nuxt-link
-    >
+    <div class="mt-5">
+      <nuxt-link :to="`/topics/${topic.id}/twittersearches`">Twitter Searches</nuxt-link>
+    </div>
 
     <div class="mt-5">
       <el-button type="primary" @click="save">Save</el-button>
@@ -22,19 +22,13 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    const { body: topics } = await this.$supabase
-      .from<any>('topic')
-      .select('*')
-      .eq('id', this.$route.params.topicId)
+    const { body: topics } = await this.$supabase.from<any>('topic').select('*').eq('id', this.$route.params.topicId)
 
     this.topic = topics!![0]
   },
   methods: {
     async save() {
-      const { error } = await this.$supabase
-        .from('topic')
-        .update(this.topic)
-        .eq('id', this.$route.params.topicId)
+      const { error } = await this.$supabase.from('topic').update(this.topic).eq('id', this.$route.params.topicId)
 
       console.log(error)
     },

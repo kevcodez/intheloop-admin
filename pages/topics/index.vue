@@ -1,5 +1,8 @@
 <template>
-  <div class="container">
+  <div>
+    <div class="mb-5">
+      <nuxt-link class="el-button" to="/topics/new">New</nuxt-link>
+    </div>
     <div v-for="topic in topics" :key="topic.id">
       <nuxt-link :to="`/topics/${topic.id}`">{{ topic.id }}</nuxt-link>
     </div>

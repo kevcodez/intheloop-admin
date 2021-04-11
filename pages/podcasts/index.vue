@@ -1,9 +1,10 @@
 <template>
-  <div class="container">
-    <div>
-      <div v-for="podcast in podcasts" :key="podcast.id">
-        <nuxt-link :to="`/podcasts/${podcast.id}`">{{ podcast.id }}</nuxt-link>
-      </div>
+  <div>
+    <div class="mb-5">
+      <nuxt-link class="el-button" to="/podcasts/new">New</nuxt-link>
+    </div>
+    <div v-for="podcast in podcasts" :key="podcast.id">
+      <nuxt-link :to="`/podcasts/${podcast.id}`">{{ podcast.id }}</nuxt-link>
     </div>
   </div>
 </template>

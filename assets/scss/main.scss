@@ -2,3 +2,7 @@
 @import "element-ui";
 
 @import "vue-multiselect/dist/vue-multiselect.min.css";
+
+a {
+    @apply text-indigo-500 cursor-pointer hover:text-indigo-700;
+}

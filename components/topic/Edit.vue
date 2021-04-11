@@ -107,7 +107,7 @@
         </div>
 
         <div class="mt-2 grid grid-cols-4 gap-6">
-            <div v-for="badge in topic.info.badges" :key="badge.url" class="space-y-2 shadow p-4">
+            <div v-for="(badge, i) in topic.info.badges" :key="i" class="space-y-2 shadow p-4">
                 <a class="float-right" @click="removeBadge(badge)">Remove</a>
 
                 <div>
@@ -124,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="space-y-2 shadow p-4" v-for="social in topic.info.social" :key="social.url">
+            <div class="space-y-2 shadow p-4" v-for="(social, i) in topic.info.social" :key="i">
                 <a class="float-right" @click="removeSocial(social)">Remove</a>
                 <div>
                     <span class="block">Social Type</span>
@@ -171,37 +171,37 @@
 
         <div class="grid grid-cols-4 gap-6 mt-4">
             <div>
-                <span class="block">Blogs</span>
+                <a href="/blogs" target="_blank" class="block">Blogs</a>
                 <blog-select-multiple v-model="topic.blogs" />
             </div>
 
             <div>
-                <span class="block">Books</span>
+                <a href="/books" target="_blank" class="block">Books</a>
                 <book-select-multiple v-model="topic.books" />
             </div>
 
             <div>
-                <span class="block">Communities</span>
+                <a href="/communities" target="_blank" class="block">Communities</a>
                 <community-select-multiple v-model="topic.communities" />
             </div>
 
             <div>
-                <span class="block">Courses</span>
+                <a href="/courses" target="_blank" class="block">Courses</a>
                 <course-select-multiple v-model="topic.courses" />
             </div>
 
             <div>
-                <span class="block">Newsletters</span>
+                <a href="/newsletters" target="_blank" class="block">Newsletters</a>
                 <newsletter-select-multiple v-model="topic.newsletters" />
             </div>
 
             <div>
-                <span class="block">Developers</span>
+                <a href="/developers" target="_blank" class="block">Developers</a>
                 <developer-select-multiple v-model="topic.developers" />
             </div>
 
             <div>
-                <span class="block">Podcasts</span>
+                <a href="/podcasts" target="_blank" class="block">Podcasts</a>
                 <podcast-select-multiple v-model="topic.podcasts" />
             </div>
         </div>

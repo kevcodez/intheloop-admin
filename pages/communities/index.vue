@@ -1,11 +1,10 @@
 <template>
-  <div class="container">
-    <div>
-      <div v-for="community in communities" :key="community.id">
-        <nuxt-link :to="`/communities/${community.id}`">{{
-          community.id
-        }}</nuxt-link>
-      </div>
+  <div>
+    <div class="mb-5">
+      <nuxt-link class="el-button" to="/communities/new">New</nuxt-link>
+    </div>
+    <div v-for="community in communities" :key="community.id">
+      <nuxt-link :to="`/communities/${community.id}`">{{ community.id }}</nuxt-link>
     </div>
   </div>
 </template>
@@ -15,9 +14,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   async asyncData({ app }) {
-    const { body: communities } = await app.$supabase
-      .from('community')
-      .select('*')
+    const { body: communities } = await app.$supabase.from('community').select('*')
 
     return {
       communities,
