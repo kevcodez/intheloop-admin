@@ -12,6 +12,7 @@
             @search-change="search"
             track-by="id"
             :custom-label="optionLabel"
+            :close-on-select="false"
         />
     </div>
 </template>

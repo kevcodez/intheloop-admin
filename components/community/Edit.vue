@@ -25,6 +25,7 @@
         <el-option value="Slack" label="Slack" />
         <el-option value="Reddit" label="Reddit" />
         <el-option value="Github" label="Github" />
+        <el-option value="Gitter" label="Gitter" />
       </el-select>
     </div>
 
