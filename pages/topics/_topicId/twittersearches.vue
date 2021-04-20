@@ -25,7 +25,7 @@
         <span
           >Query
           <div class="float-right">
-            <a class="cursor-pointer mr-2" @click="searchTweets(query)">Test</a>
+            <a class="cursor-pointer mr-2" @click="searchTweets(query, search.info.popular)">Test</a>
             <a class="cursor-pointer" @click="removeSearch(query)">X</a>
           </div>
         </span>
@@ -34,8 +34,8 @@
     </div>
 
     <div class="mt-5 grid grid-cols-4 gap-4" v-if="searchResults">
-      <div v-for="tweet in searchResults.tweets" :key="tweet.id">
-        {{ tweet.text }}
+      <div v-for="tweet in searchResults" :key="tweet.id">
+        {{ tweet.full_text }}
       </div>
     </div>
 
@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { TwitterSearch, TwitterSearchQuery } from '~/lib/twitterSearches/TwitterSearch'
+import { TwitterSearch, TwitterSearchQuery, TwitterSearchRequest } from '~/lib/twitterSearches/TwitterSearch'
 
 export default Vue.extend({
   name: 'TopicTwitterSearches',
@@ -83,7 +83,8 @@ export default Vue.extend({
     },
     async searchTweets(search: TwitterSearchQuery) {
       try {
-        this.searchResults = await this.$http.$post('https://europe-west1-intheloop-dev.cloudfunctions.net/retrieveTweetsBySearch', search)
+        const request: TwitterSearchRequest = { search, popularitySettings: this.search.info.popular }
+        this.searchResults = await this.$http.$post('https://europe-west1-intheloop-dev.cloudfunctions.net/retrieveTweetsBySearch', request)
       } catch (err) {
         const errorText = await err.response.text()
         console.error(errorText)

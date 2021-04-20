@@ -17,3 +17,8 @@ export interface TwitterSearchPopularitySettings {
   minLikes: number
   minReplies: number
 }
+
+export interface TwitterSearchRequest {
+  search: TwitterSearchQuery
+  popularitySettings: TwitterSearchPopularitySettings
+}
