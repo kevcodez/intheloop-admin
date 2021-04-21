@@ -37,8 +37,8 @@
     <div class="grid grid-cols-2 gap-6 mt-4">
       <div
         class="shadow p-4"
-        v-for="author in course.info.authors"
-        :key="author.name"
+        v-for="(author, i) in course.info.authors"
+        :key="i"
       >
         <a @click="removeAuthor(author)" class="float-right">Remove</a>
         <span>Name</span>
