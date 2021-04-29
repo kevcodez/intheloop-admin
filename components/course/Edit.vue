@@ -35,11 +35,7 @@
       <el-button @click="addAuthor">Add author</el-button>
     </div>
     <div class="grid grid-cols-2 gap-6 mt-4">
-      <div
-        class="shadow p-4"
-        v-for="(author, i) in course.info.authors"
-        :key="i"
-      >
+      <div class="shadow p-4" v-for="(author, i) in course.info.authors" :key="i">
         <a @click="removeAuthor(author)" class="float-right">Remove</a>
         <span>Name</span>
         <el-input v-model="author.name" />
@@ -50,6 +46,8 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+import { CourseInfo } from '~/lib/courses/Course'
+import { scrapeCourse } from '~/lib/courses/scrapeCourse'
 
 export default Vue.extend({
   props: {
@@ -70,15 +68,18 @@ export default Vue.extend({
       this.course.info.authors.push({ name: '' })
     },
     removeAuthor(author: any) {
-      this.course.info.authors.splice(
-        this.course.info.authors.indexOf(author),
-        1
-      )
+      this.course.info.authors.splice(this.course.info.authors.indexOf(author), 1)
     },
   },
   watch: {
-    course: function (newcourse) {
+    course: function (newcourse: CourseInfo) {
       this.$emit('input', newcourse)
+    },
+    'course.info.url': async function (url: string) {
+      if (!this.course.info.id && url) {
+        const scraped = await scrapeCourse(url)
+        console.log(url)
+      }
     },
   },
 })

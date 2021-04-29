@@ -1,0 +1,1 @@
+docker run --restart=always -d -p 3030:3000 --name cors-container imjacobclark/cors-container
