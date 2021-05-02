@@ -1,8 +1,6 @@
 <template>
   <div class="flex space-x-2">
-    <a v-if="value" target="_blank" :href="internal"
-      ><img class="h-6 w-6" :src="internal"
-    /></a>
+    <a v-if="value" target="_blank" :href="internal"><img class="h-6 w-6" :src="internal" /></a>
     <el-input v-model="internal" />
   </div>
 </template>
@@ -25,6 +23,9 @@ export default Vue.extend({
   watch: {
     internal(newVal) {
       this.$emit('input', newVal)
+    },
+    value(external) {
+      this.internal = external
     },
   },
 })

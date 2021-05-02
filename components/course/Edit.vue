@@ -12,11 +12,6 @@
       </div>
 
       <div>
-        <span>Description</span>
-        <el-input v-model="course.info.description" type="textarea" />
-      </div>
-
-      <div>
         <span>Url</span>
         <el-input v-model="course.info.url" />
       </div>
@@ -30,6 +25,11 @@
         <span>Price</span>
         <el-input v-model="course.info.price" />
       </div>
+
+      <div>
+        <span class="block">Published At</span>
+        <el-date-picker v-model="course.info.publishedAt" />
+      </div>
     </div>
     <div class="mt-4">
       <el-button @click="addAuthor">Add author</el-button>
@@ -40,6 +40,14 @@
         <span>Name</span>
         <el-input v-model="author.name" />
       </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-6 mt-4">
+      <div>
+        <span>Description</span>
+        <el-input v-model="course.info.description" type="textarea" />
+      </div>
+      <div v-if="course.info.description" class="prose" v-html="course.info.description"></div>
     </div>
   </div>
 </template>
@@ -78,9 +86,17 @@ export default Vue.extend({
     'course.info.url': async function (url: string) {
       if (!this.course.info.id && url) {
         const scraped = await scrapeCourse(url)
-        console.log(url)
+        if (scraped) {
+          this.course = scraped
+        }
       }
     },
   },
 })
 </script>
+
+<style lang="scss">
+textarea {
+  min-height: 250px !important;
+}
+</style>
