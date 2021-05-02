@@ -29,7 +29,7 @@ const udemyCourse = async (url: string): Promise<Course | null> => {
     description: response.description,
     image: response.image_480x270,
     name: response.title,
-    price: response.price_detail.price_string,
+    price: response.is_paid ? response.price_detail.price_string : 'Free',
     url: `https://udemy.com${response.url}`,
     publishedAt: response.created,
     platform: CoursePlatform.UDEMY,
