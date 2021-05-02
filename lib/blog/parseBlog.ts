@@ -1,7 +1,7 @@
 import { Blog } from "./Blog";
 import ky from 'ky'
 
-export async function parseBlog(url: string): Blog | null {
+export async function parseBlog(url: string): Promise<Blog | null> {
     try {
         const constructedUrl = new URL(url)
 
