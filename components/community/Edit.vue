@@ -57,6 +57,31 @@ export default Vue.extend({
     community: function (newCommunity) {
       this.$emit('input', newCommunity)
     },
+    'community.info.url': function (url: string) {
+      if (!this.community.info.type && url) {
+        const lowerUrl = url.toLowerCase()
+        let type = null
+        if (lowerUrl.includes('stackoverflow')) {
+          type = 'StackOverflow'
+        } else if (lowerUrl.includes('linkedin')) {
+          type = 'LinkedIn'
+        } else if (lowerUrl.includes('reddit')) {
+          type = 'Reddit'
+        } else if (lowerUrl.includes('slack')) {
+          type = 'Slack'
+        } else if (lowerUrl.includes('discord')) {
+          type = 'Discord'
+        } else if (lowerUrl.includes('github')) {
+          type = 'Github'
+        } else if (lowerUrl.includes('gitter')) {
+          type = 'Gitter'
+        } else if (lowerUrl.includes('twitter')) {
+          type = 'Twitter'
+        }
+
+        this.community.info.type = type
+      }
+    },
   },
 })
 </script>
