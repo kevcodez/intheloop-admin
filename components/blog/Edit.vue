@@ -38,6 +38,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+import { parseBlog } from '~/lib/blog/parseBlog'
 
 export default Vue.extend({
   props: {
@@ -56,6 +57,14 @@ export default Vue.extend({
   watch: {
     blog: function (newBlog) {
       this.$emit('input', newBlog)
+    },
+    'blog.info.url': async function (url) {
+      if (url && !this.blog.id) {
+        const blog = await parseBlog(url)
+        if (blog) {
+          this.blog = blog
+        }
+      }
     },
   },
 })
