@@ -1,4 +1,4 @@
-import { Course, CourseInfo } from './Course'
+import { Course, CourseInfo, CoursePlatform } from './Course'
 import ky from 'ky'
 
 export const scrapeCourse = async (url: string): Promise<Course | null> => {
@@ -32,6 +32,9 @@ const udemyCourse = async (url: string): Promise<Course | null> => {
     price: response.price_detail.price_string,
     url: `https://udemy.com${response.url}`,
     publishedAt: response.created,
+    platform: CoursePlatform.UDEMY,
+    interactive: false,
+    free: !response.is_paid
   }
 
   return {
@@ -64,6 +67,9 @@ const eggheadCourse = async (url: string): Promise<Course | null> => {
       price: '$25', // some are free, some require membership which starts at $25/month
       image,
       publishedAt: createdAt,
+      platform: CoursePlatform.EGGHEAD,
+      interactive: false,
+      free: false,
     },
   }
 }

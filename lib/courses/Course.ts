@@ -13,4 +13,17 @@ export interface CourseInfo {
   image: string
   description: string
   authors: Author[]
+  platform: CoursePlatform
+  interactive: boolean
+  free: boolean
+}
+
+export enum CoursePlatform {
+  EGGHEAD = 'EGGHEAD',
+  UDEMY = 'UDEMY',
+  OREILLY = 'OREILLY',
+  COURSERA = 'COURSERA',
+  YOUTUBE = 'YOUTUBE',
+  PLURALSIGHT = 'PLURALSIGHT',
+  OTHER = 'OTHER',
 }

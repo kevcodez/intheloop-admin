@@ -17,8 +17,21 @@
       </div>
 
       <div>
+        <span class="block">Platform</span>
+        <el-select v-model="course.info.platform" class="w-full">
+          <el-option value="UDEMY" label="Udemy" />
+          <el-option value="EGGHEAD" label="Egghead" />
+        </el-select>
+      </div>
+
+      <div>
         <span>Image</span>
         <edit-image v-model="course.info.image" />
+      </div>
+
+      <div>
+        <span class="block">Published At</span>
+        <el-date-picker v-model="course.info.publishedAt" class="w-full" />
       </div>
 
       <div>
@@ -27,15 +40,20 @@
       </div>
 
       <div>
-        <span class="block">Published At</span>
-        <el-date-picker v-model="course.info.publishedAt" />
+        <span class="block">Free</span>
+        <el-switch v-model="course.info.free" />
+      </div>
+
+      <div>
+        <span class="block">Interactive</span>
+        <el-switch v-model="course.info.interactive" />
       </div>
     </div>
     <div class="mt-4">
       <el-button @click="addAuthor">Add author</el-button>
     </div>
     <div class="grid grid-cols-2 gap-6 mt-4">
-      <div class="shadow p-4" v-for="(author, i) in course.info.authors" :key="i">
+      <div class="p-4 shadow" v-for="(author, i) in course.info.authors" :key="i">
         <a @click="removeAuthor(author)" class="float-right">Remove</a>
         <span>Name</span>
         <el-input v-model="author.name" />
@@ -47,7 +65,7 @@
         <span>Description</span>
         <el-input v-model="course.info.description" type="textarea" />
       </div>
-      <div v-if="course.info.description" style="max-height: 300px" class="prose overflow-scroll" v-html="course.info.description"></div>
+      <div v-if="course.info.description" style="max-height: 300px" class="overflow-scroll prose" v-html="course.info.description"></div>
     </div>
   </div>
 </template>
