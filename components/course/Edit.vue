@@ -47,7 +47,7 @@
         <span>Description</span>
         <el-input v-model="course.info.description" type="textarea" />
       </div>
-      <div v-if="course.info.description" class="prose" v-html="course.info.description"></div>
+      <div v-if="course.info.description" style="max-height: 300px" class="prose overflow-scroll" v-html="course.info.description"></div>
     </div>
   </div>
 </template>
