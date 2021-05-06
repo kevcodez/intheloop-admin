@@ -23,6 +23,7 @@ export default Vue.extend({
           description: '',
           publishedAt: '2020-01-01',
           authors: [],
+          buyLinks: []
         },
         authors: []
       },

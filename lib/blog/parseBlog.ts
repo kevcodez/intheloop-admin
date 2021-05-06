@@ -12,6 +12,7 @@ export async function parseBlog(url: string): Promise<Blog | null> {
         const htmlDoc = parser.parseFromString(response, 'text/html')
         rssFeedUrl = htmlDoc.querySelector("link[type='application/rss+xml']")?.getAttribute('href') || null
 
+        console.log(htmlDoc.querySelector("link[type='application/rss+xml']"))
         if (rssFeedUrl && rssFeedUrl.startsWith("/")) {
             // attach domain if path is relative
             rssFeedUrl = constructedUrl.protocol + "//" + constructedUrl.host + rssFeedUrl

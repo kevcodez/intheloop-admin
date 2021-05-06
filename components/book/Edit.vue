@@ -31,7 +31,6 @@
         <el-date-picker v-model="book.info.publishedAt" />
       </div>
 
-      <!-- todo authors -->
     </div>
 
     <div class="mt-4">
@@ -42,6 +41,17 @@
         <a @click="removeAuthor(author)" class="float-right">Remove</a>
         <span>Name</span>
         <el-input v-model="author.name" />
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <el-button @click="addBuyLink">Add Buylink</el-button>
+    </div>
+    <div class="grid grid-cols-2 gap-6 mt-4">
+      <div class="shadow p-4" v-for="(buyLink, i) in book.info.buyLinks" :key="i">
+        <a @click="removeBuyLink(buyLink)" class="float-right">Remove</a>
+        <span>URL</span>
+        <el-input v-model="buyLink.url" />
       </div>
     </div>
   </div>
@@ -71,6 +81,13 @@ export default Vue.extend({
     },
     removeAuthor(author: any) {
       this.book.info.authors.splice(this.book.info.authors.indexOf(author), 1)
+    },
+
+    addBuyLink() {
+      this.book.info.buyLinks.push({ url: '' })
+    },
+    removeBuyLink(buyLink: any) {
+      this.book.info.buyLinks.splice(this.book.info.buyLinks.indexOf(buyLink), 1)
     },
   },
   watch: {
