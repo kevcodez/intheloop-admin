@@ -1,20 +1,19 @@
-# intheloop
+# Intheloop
 
-## Build Setup
+[Intheloop](https://intheloop.dev) helps stay up-to-date with the technologies you're interested in.
 
-```bash
-# install dependencies
-$ yarn install
+## Admin Interface
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+This repository contains an admin interface (based on Nuxt SPA) to speed up the process of editing and adding topics.
+If users are ever allowed to add/suggest books/courses/blogs, the automatic parsing should be moved outside this repository.
+For now, parsing courses/books/blogs resides in this repository.
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+## Roadmap
 
-# generate static project
-$ yarn generate
-```
+The rough roadmap can be found [here](https://intheloop.dev/roadmap) and is powered by [productstash.io](productstash.io).
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Repositories
+
+- [Web](https://github.com/kevcodez/intheloop) - Nuxt.js web app that powers [Intheloop](https://intheloop.dev)
+- [Functions](https://github.com/kevcodez/intheloop-functions) - Firebase functions for API endpoints/scheduled functions
+- [Admin](https://github.com/kevcodez/intheloop-admin) - Nuxt.js admin interface for adding/editing topics
