@@ -18,19 +18,13 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    const { body: books } = await this.$supabase
-      .from<any>('book')
-      .select('*')
-      .eq('id', this.$route.params.id)
+    const { body: books } = await this.$supabase.from<any>('book').select('*').eq('id', this.$route.params.id)
 
     this.book = books!![0]
   },
   methods: {
     async save() {
-      const { error } = await this.$supabase
-        .from('book')
-        .update(this.book)
-        .eq('id', this.$route.params.id)
+      const { error } = await this.$supabase.from('book').update(this.book).eq('id', this.$route.params.id)
 
       console.log(error)
     },

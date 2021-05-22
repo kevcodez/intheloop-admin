@@ -67,6 +67,13 @@
       </div>
       <div v-if="course.info.description" style="max-height: 300px" class="overflow-scroll prose" v-html="course.info.description"></div>
     </div>
+
+    <div class="grid grid-cols-4 gap-6 mt-4">
+      <div>
+        <a href="/topics" target="_blank" class="block">Topics</a>
+        <topic-select-multiple v-model="course.topics" />
+      </div>
+    </div>
   </div>
 </template>
 

@@ -30,7 +30,6 @@
         <span class="block">Published At</span>
         <el-date-picker v-model="book.info.publishedAt" />
       </div>
-
     </div>
 
     <div class="mt-4">
@@ -52,6 +51,13 @@
         <a @click="removeBuyLink(buyLink)" class="float-right">Remove</a>
         <span>URL</span>
         <el-input v-model="buyLink.url" />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-4 gap-6 mt-4">
+      <div>
+        <a href="/topics" target="_blank" class="block">Topics</a>
+        <topic-select-multiple v-model="book.topics" />
       </div>
     </div>
   </div>
@@ -82,7 +88,6 @@ export default Vue.extend({
     removeAuthor(author: any) {
       this.book.info.authors.splice(this.book.info.authors.indexOf(author), 1)
     },
-
     addBuyLink() {
       this.book.info.buyLinks.push({ url: '' })
     },

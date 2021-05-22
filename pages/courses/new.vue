@@ -26,7 +26,8 @@ export default Vue.extend({
           platform: null,
           free: false,
           interactive: false,
-        }
+        },
+        topics: [],
       },
     }
   },

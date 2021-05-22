@@ -25,6 +25,7 @@ export default Vue.extend({
           authors: [],
           buyLinks: []
         },
+        topics: [],
         authors: []
       },
     }
