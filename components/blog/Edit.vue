@@ -28,6 +28,11 @@
       </div>
 
       <div>
+        <span>Official</span>
+        <el-switch v-model="blog.info.official" />
+      </div>
+
+      <div>
         <span>Topics</span>
         <topic-select-multiple v-model="blog.topics" />
       </div>

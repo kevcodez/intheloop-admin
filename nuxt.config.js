@@ -37,7 +37,7 @@ export default {
   env: {
     supabaseKey: process.env.INTHELOOP_SUPABASE_KEY,
     udemyClientId: process.env.INTHELOOP_UDEMY_CLIENT_ID,
-    udemyClientSecret: process.env.INTHELOOP_UDEMY_CLIENT_ID,
+    udemyClientSecret: process.env.INTHELOOP_UDEMY_CLIENT_SECRET,
     
   },
 }

@@ -20,6 +20,7 @@ export default Vue.extend({
           url: '',
           rssFeedUrl: '',
           name: '',
+          official: false,
         },
         topics: []
       },
