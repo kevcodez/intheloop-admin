@@ -68,8 +68,8 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    const { body: searches } = await this.$supabase
-      .from<TwitterSearch>('twitter_search')
+    const { data: searches } = await this.$supabase
+      .from<any, TwitterSearch>('twitter_search')
       .select('*')
       .eq('topic', this.$route.params.topicId)
 

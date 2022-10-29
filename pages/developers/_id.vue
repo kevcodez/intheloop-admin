@@ -19,8 +19,8 @@ export default Vue.extend({
   },
   async fetch() {
     // @ts-ignore
-    const { body: developers } = await this.$supabase
-      .from<any>('developer')
+    const { data: developers } = await this.$supabase
+      .from<any, any>('developer')
       .select('*')
       .eq('id', this.$route.params.id)
 

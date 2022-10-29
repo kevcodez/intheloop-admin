@@ -18,8 +18,8 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    const { body: courses } = await this.$supabase
-      .from<any>('course')
+    const { data: courses } = await this.$supabase
+      .from<any, any>('course')
       .select('*')
       .eq('id', this.$route.params.id)
 

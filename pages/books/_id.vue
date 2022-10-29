@@ -18,7 +18,7 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    const { body: books } = await this.$supabase.from<any>('book').select('*').eq('id', this.$route.params.id)
+    const { data: books } = await this.$supabase.from<any, any>('book').select('*').eq('id', this.$route.params.id)
 
     this.book = books!![0]
   },

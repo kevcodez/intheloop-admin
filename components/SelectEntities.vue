@@ -53,7 +53,7 @@ export default Vue.extend({
             this.isLoading = true
 
             const { data, error } = await this.$supabase
-                .from<any>(this.table)
+                .from<any, any>(this.table)
                 .select('*')
                 .or( this.searchFields.map(it => `info->>${it}.ilike.*${query}*`).join(`,`))
 
@@ -67,7 +67,7 @@ export default Vue.extend({
                 this.selectedValues = []
             } else {
                 const { data, error } = await this.$supabase
-                    .from<any>(this.table)
+                    .from<any, any>(this.table)
                     .select('*')
                     .in("id", this.value)
 

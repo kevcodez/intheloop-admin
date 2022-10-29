@@ -14,7 +14,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   async asyncData({ app }) {
-    const { body: podcasts } = await app.$supabase.from('podcast').select('*')
+    const { data: podcasts } = await app.$supabase.from('podcast').select('*')
 
     return {
       podcasts,

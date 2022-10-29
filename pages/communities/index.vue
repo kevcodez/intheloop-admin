@@ -14,7 +14,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   async asyncData({ app }) {
-    const { body: communities } = await app.$supabase.from('community').select('*')
+    const { data: communities } = await app.$supabase.from('community').select('*')
 
     return {
       communities,

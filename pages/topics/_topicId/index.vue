@@ -22,7 +22,7 @@ export default Vue.extend({
     }
   },
   async fetch() {
-    const { body: topics } = await this.$supabase.from<any>('topic').select('*').eq('id', this.$route.params.topicId)
+    const { data: topics } = await this.$supabase.from<any, any>('topic').select('*').eq('id', this.$route.params.topicId)
 
     this.topic = topics!![0]
   },
