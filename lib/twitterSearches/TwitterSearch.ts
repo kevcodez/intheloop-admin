@@ -1,12 +1,7 @@
 export interface TwitterSearch {
-  id: number | undefined
-  info: TwitterSearchInfo
-  topic: string
-}
-
-export interface TwitterSearchInfo {
   popular: TwitterSearchPopularitySettings
   searches: TwitterSearchQuery[]
+  topic_id: string
 }
 
 export interface TwitterSearchQuery {

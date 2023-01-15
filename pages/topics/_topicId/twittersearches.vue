@@ -3,29 +3,27 @@
     <div class="grid grid-cols-4 gap-6">
       <div>
         <span class="block">Min Likes</span>
-        <el-input-number v-model="search.info.popular.minLikes" />
+        <el-input-number v-model="search.popular.minLikes" />
       </div>
 
       <div>
         <span class="block">Min Replies</span>
-        <el-input-number v-model="search.info.popular.minReplies" />
+        <el-input-number v-model="search.popular.minReplies" />
       </div>
     </div>
 
-    <a class="mt-4" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query" target="_blank"
-      >Twitter Query Docs</a
-    >
+    <a class="mt-4" href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query"
+      target="_blank">Twitter Query Docs</a>
 
     <div class="mt-4">
       <el-button @click="addSearch">Add Search</el-button>
     </div>
 
     <div class="mt-4 grid grid-cols-4 gap-6">
-      <div v-for="(query, i) in search.info.searches" :key="i">
-        <span
-          >Query
+      <div v-for="(query, i) in search.searches" :key="i">
+        <span>Query
           <div class="float-right">
-            <a class="cursor-pointer mr-2" @click="searchTweets(query, search.info.popular)">Test</a>
+            <a class="cursor-pointer mr-2" @click="searchTweets(query)">Test</a>
             <a class="cursor-pointer" @click="removeSearch(query)">X</a>
           </div>
         </span>
@@ -54,47 +52,44 @@ export default Vue.extend({
   data() {
     return {
       search: {
-        id: undefined,
-        topic: this.$route.params.topicId,
-        info: {
-          popular: {
-            minLikes: 30,
-            minReplies: 30,
-          },
-          searches: [{ query: '' }],
+        topic_id: this.$route.params.topicId,
+        popular: {
+          minLikes: 30,
+          minReplies: 30,
         },
+        searches: [{ query: '' }],
       } as TwitterSearch,
       searchResults: null as any,
     }
   },
   async fetch() {
     const { data: searches } = await this.$supabase
-      .from('twitter_search')
-      .select('*')
-      .eq('topic', this.$route.params.topicId)
+      .from('scrape_settings')
+      .select('tweets')
+      .eq('topic_id', this.$route.params.topicId)
 
     if (searches && searches.length) {
-      this.search = searches[0]
+      this.search = searches[0].tweets
     }
   },
   methods: {
     async save() {
-      const { error } = await this.$supabase.from('twitter_search').upsert(this.search)
+      const { error } = await this.$supabase.from('scrape_settings').update({ tweets: this.search }).eq('topic_id', this.$route.params.topicId)
     },
     async searchTweets(search: TwitterSearchQuery) {
       try {
-        const request: TwitterSearchRequest = { search, popularitySettings: this.search.info.popular }
+        const request: TwitterSearchRequest = { search, popularitySettings: this.search.popular }
         this.searchResults = await this.$http.$post('https://europe-west1-intheloop-dev.cloudfunctions.net/retrieveTweetsBySearch', request)
-      } catch (err) {
+      } catch (err: any) {
         const errorText = await err.response.text()
         console.error(errorText)
       }
     },
     addSearch() {
-      this.search.info.searches.push({ query: '' })
+      this.search.searches.push({ query: '' })
     },
     removeSearch(query: any) {
-      this.search.info.searches.splice(this.search.info.searches.indexOf(query), 1)
+      this.search.searches.splice(this.search.searches.indexOf(query), 1)
     },
   },
 })
