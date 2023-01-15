@@ -32,7 +32,24 @@ export default Vue.extend({
         .update(this.podcast)
         .eq('id', this.$route.params.id)
 
-      console.log(error)
+      if (error) {
+        console.error(error)
+        Vue.swal({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Error',
+          showConfirmButton: true,
+        });
+      } else {
+        Vue.swal({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Saved',
+          showConfirmButton: false,
+          timer: 1000
+        });
+      }
+
     },
   },
 })

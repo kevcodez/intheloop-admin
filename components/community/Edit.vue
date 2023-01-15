@@ -33,6 +33,11 @@
       <span class="block">Official</span>
       <el-switch v-model="community.info.official" />
     </div>
+
+    <div>
+      <a href="/topics" target="_blank" class="block">Topics</a>
+      <topic-select-multiple v-model="community.topics" />
+    </div>
   </div>
 </template>
 

@@ -19,6 +19,11 @@
       <span>Description</span>
       <el-input v-model="newsletter.info.description" />
     </div>
+
+    <div>
+      <a href="/topics" target="_blank" class="block">Topics</a>
+      <topic-select-multiple v-model="newsletter.topics_ids" />
+    </div>
   </div>
 </template>
 
@@ -40,8 +45,8 @@ export default Vue.extend({
     }
   },
   watch: {
-    newsletter: function (newnewsletter) {
-      this.$emit('input', newnewsletter)
+    newsletter: function (newsletter) {
+      this.$emit('input', newsletter)
     },
   },
 })

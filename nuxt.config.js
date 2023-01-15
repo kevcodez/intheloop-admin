@@ -19,7 +19,7 @@ export default {
   css: ['~/assets/scss/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/supabase', '~/plugins/element-ui', '~/plugins/vue-multiselect'],
+  plugins: ['~/plugins/supabase', '~/plugins/element-ui', '~/plugins/vue-multiselect', '~/plugins/alert'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

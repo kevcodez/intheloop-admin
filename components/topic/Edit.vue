@@ -145,66 +145,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="mt-6">
-            <div>
-                <span class="block">Via</span>
-                <el-select class="w-full" v-model="topic.info.fetchReleases.via">
-                    <el-option label="Github" value="Github" />
-                    <el-option label="NPM" value="npm" />
-                </el-select>
-            </div>
-
-            <div v-if="topic.info.fetchReleases.via === 'Github'">
-                <span>Repo</span>
-                <el-input v-model="topic.info.fetchReleases.meta.repo" />
-
-                <span>Owner</span>
-                <el-input v-model="topic.info.fetchReleases.meta.owner" />
-            </div>
-
-            <div v-else-if="topic.info.fetchReleases.via === 'npm'">
-                <span>Package</span>
-                <el-input v-model="topic.info.fetchReleases.meta.package" />
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-6 mt-4">
-            <div>
-                <a href="/blogs" target="_blank" class="block">Blogs</a>
-                <blog-select-multiple v-model="topic.blogs" />
-            </div>
-
-            <div>
-                <a href="/books" target="_blank" class="block">Books</a>
-                <book-select-multiple v-model="topic.books" />
-            </div>
-
-            <div>
-                <a href="/communities" target="_blank" class="block">Communities</a>
-                <community-select-multiple v-model="topic.communities" />
-            </div>
-
-            <div>
-                <a href="/courses" target="_blank" class="block">Courses</a>
-                <course-select-multiple v-model="topic.courses" />
-            </div>
-
-            <div>
-                <a href="/newsletters" target="_blank" class="block">Newsletters</a>
-                <newsletter-select-multiple v-model="topic.newsletters" />
-            </div>
-
-            <div>
-                <a href="/developers" target="_blank" class="block">Developers</a>
-                <developer-select-multiple v-model="topic.developers" />
-            </div>
-
-            <div>
-                <a href="/podcasts" target="_blank" class="block">Podcasts</a>
-                <podcast-select-multiple v-model="topic.podcasts" />
-            </div>
-        </div>
     </div>
 </template>
 
@@ -224,7 +164,7 @@ export default Vue.extend({
         }
     },
     watch: {
-        topic: function(newTopic) {
+        topic: function (newTopic) {
             this.$emit('input', newTopic)
         }
     },

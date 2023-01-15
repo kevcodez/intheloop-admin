@@ -19,7 +19,7 @@
       <el-button @click="addSearch">Add Search</el-button>
     </div>
 
-    <div class="mt-4 grid grid-cols-4 gap-6">
+    <div class="mt-4 grid grid-cols-2 gap-6">
       <div v-for="(query, i) in search.searches" :key="i">
         <span>Query
           <div class="float-right">
@@ -49,10 +49,16 @@ import { TwitterSearch, TwitterSearchQuery, TwitterSearchRequest } from '~/lib/t
 
 export default Vue.extend({
   name: 'TopicTwitterSearches',
+  props: {
+        topicId: {
+            required: true,
+            type: String
+        }
+    },
   data() {
     return {
       search: {
-        topic_id: this.$route.params.topicId,
+        topic_id: this.topicId,
         popular: {
           minLikes: 30,
           minReplies: 30,
@@ -66,7 +72,7 @@ export default Vue.extend({
     const { data: searches } = await this.$supabase
       .from('scrape_settings')
       .select('tweets')
-      .eq('topic_id', this.$route.params.topicId)
+      .eq('topic_id', this.topicId)
 
     if (searches && searches.length) {
       this.search = searches[0].tweets
@@ -74,7 +80,7 @@ export default Vue.extend({
   },
   methods: {
     async save() {
-      const { error } = await this.$supabase.from('scrape_settings').update({ tweets: this.search }).eq('topic_id', this.$route.params.topicId)
+      const { error } = await this.$supabase.from('scrape_settings').update({ tweets: this.search }).eq('topic_id', this.topicId)
     },
     async searchTweets(search: TwitterSearchQuery) {
       try {

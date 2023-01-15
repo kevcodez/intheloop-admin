@@ -19,6 +19,11 @@
       <span>Description</span>
       <el-input v-model="podcast.info.description" />
     </div>
+
+    <div>
+      <a href="/topics" target="_blank" class="block">Topics</a>
+      <topic-select-multiple v-model="podcast.topic_ids" />
+    </div>
   </div>
 </template>
 

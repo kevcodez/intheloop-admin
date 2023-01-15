@@ -9,6 +9,18 @@
     <div class="mt-5">
       <el-button type="primary" @click="save">Save</el-button>
     </div>
+
+    <div class="grid grid-cols-2 mt-6 gap-8">
+      <div>
+        <p class="text-lg font-medium">Release Scrape Settings</p>
+        <topic-release-scrape-settings :topic-id="topic.id" />
+      </div>
+
+      <div>
+        <p class="text-lg font-medium">Twitter Scrape Settings</p>
+        <twitter-searches :topic-id="topic.id" />
+      </div>
+    </div>
   </div>
 </template>
 
