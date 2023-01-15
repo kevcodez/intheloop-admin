@@ -15,5 +15,6 @@ The rough roadmap can be found [here](https://intheloop.dev/roadmap) and is powe
 ## Repositories
 
 - [Web](https://github.com/kevcodez/intheloop) - Nuxt.js web app that powers [Intheloop](https://intheloop.dev)
+- [Worker](https://github.com/kevcodez/intheloop-worker) - Nest.js+BullMQ worker for scraping data
 - [Functions](https://github.com/kevcodez/intheloop-functions) - Firebase functions for API endpoints/scheduled functions
 - [Admin](https://github.com/kevcodez/intheloop-admin) - Nuxt.js admin interface for adding/editing topics
