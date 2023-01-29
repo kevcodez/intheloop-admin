@@ -17,6 +17,11 @@
       </div>
 
       <div>
+        <p class="text-lg font-medium">Changelog Scrape Settings</p>
+        <topic-changelog-scrape-settings :topic-id="topic.id" />
+      </div>
+
+      <div>
         <p class="text-lg font-medium">Twitter Scrape Settings</p>
         <twitter-searches :topic-id="topic.id" />
       </div>
