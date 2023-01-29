@@ -15,7 +15,8 @@ export default Vue.extend({
                 "meta": {
                     "repo": "",
                     "owner": "",
-                    "package": ""
+                    "package": "",
+                    "tagTemplate": ""
                 },
             }
         }
@@ -36,7 +37,8 @@ export default Vue.extend({
                 "meta": {
                     "repo": "",
                     "owner": "",
-                    "package": ""
+                    "package": "",
+                    "tagTemplate": ""
                 }
             }
         }
@@ -83,6 +85,9 @@ export default Vue.extend({
 
             <span>Owner</span>
             <el-input v-model="scrapeSettings.meta.owner" />
+
+            <span>Tag-Template ($version)</span>
+            <el-input v-model="scrapeSettings.meta.tagTemplate" />
         </div>
 
         <div class="mt-4">
