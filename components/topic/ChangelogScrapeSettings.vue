@@ -16,6 +16,7 @@ export default Vue.extend({
                     "repo": "",
                     "owner": "",
                     "package": "",
+                    "markdownFileUrl": "",
                     "tagTemplate": ""
                 },
             }
@@ -38,6 +39,7 @@ export default Vue.extend({
                     "repo": "",
                     "owner": "",
                     "package": "",
+                    "markdownFileUrl": "",
                     "tagTemplate": ""
                 }
             }
@@ -76,6 +78,7 @@ export default Vue.extend({
             <span class="block">Strategy</span>
             <el-select class="w-full" v-model="scrapeSettings.strategy">
                 <el-option label="Github-Release" value="github_release" />
+                <el-option label="Markdown-File" value="markdown_file" />
             </el-select>
         </div>
 
@@ -88,6 +91,11 @@ export default Vue.extend({
 
             <span>Tag-Template ($version)</span>
             <el-input v-model="scrapeSettings.meta.tagTemplate" />
+        </div>
+
+        <div v-else-if="scrapeSettings.strategy === 'markdown_file'">
+            <span>Markdown-File-URL</span>
+            <el-input v-model="scrapeSettings.meta.markdownFileUrl" />
         </div>
 
         <div class="mt-4">
