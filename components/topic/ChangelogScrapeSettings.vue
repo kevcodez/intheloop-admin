@@ -11,7 +11,7 @@ export default Vue.extend({
     data() {
         return {
             scrapeSettings: {
-                "strategy": "github",
+                "strategy": "github_release",
                 "meta": {
                     "repo": "",
                     "owner": "",
@@ -32,7 +32,7 @@ export default Vue.extend({
 
         if (!this.scrapeSettings.strategy) {
             this.scrapeSettings = {
-                "strategy": "github",
+                "strategy": "github_release",
                 "meta": {
                     "repo": "",
                     "owner": "",
@@ -73,11 +73,11 @@ export default Vue.extend({
         <div>
             <span class="block">Strategy</span>
             <el-select class="w-full" v-model="scrapeSettings.strategy">
-                <el-option label="Github" value="github" />
+                <el-option label="Github-Release" value="github_release" />
             </el-select>
         </div>
 
-        <div v-if="scrapeSettings.strategy === 'github'">
+        <div v-if="scrapeSettings.strategy === 'github_release'">
             <span>Repo</span>
             <el-input v-model="scrapeSettings.meta.repo" />
 
